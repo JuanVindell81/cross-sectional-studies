@@ -1,5 +1,3 @@
-# cross-sectional-studies
-
 ---
 title: "ESTUDIOS TRANSVERSALES EN R"
 author: "Msc Juan José Vindell"
