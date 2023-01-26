@@ -1,11 +1,7 @@
 # cross-sectional-studies
 
----
-title: "ESTUDIOS TRANSVERSALES EN R"
-author: "Msc Juan José Vindell"
-date: "27/2/2021"
-output: html_document
----
+
+## ESTUDIOS TRANSVERSALES EN R
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -14,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## INTRODUCCIÓN
 
  <div style="text-align: justify">
-### Los estudios epidemiológicos clásicamente se dividen en Experimentales y No experimentales. En los estudios experimentales hay asignación de una exposición determinada osea que el investigador "impone" el factor al sujeto de investigación. Cuando el experimento no es posible se diseñan estudios no experimentales que simulan de alguna forma el experimento que no se ha podido realizar.
+Los estudios epidemiológicos clásicamente se dividen en Experimentales y No experimentales. En los estudios experimentales hay asignación de una exposición determinada osea que el investigador "impone" el factor al sujeto de investigación. Cuando el experimento no es posible se diseñan estudios no experimentales que simulan de alguna forma el experimento que no se ha podido realizar.
 
 
 ![](ESTUDIOS.png)
@@ -250,8 +246,8 @@ print(tab1$ContTable)
 ## **4. BIBLIOGRAFÍA**
 
 <div style="text-align: justify">
-#### 1. Argimon Pallás, J. M. Metodología de Investigación Clínica y Epidemiológica. Elsevier 5°Edición.
+1. Argimon Pallás, J. M. Metodología de Investigación Clínica y Epidemiológica. Elsevier 5°Edición.
 
-#### 2. https://CRAN.R-project.org/package=tableone
+2. https://CRAN.R-project.org/package=tableone
 
-#### 3. Logan, M. Biostatistical Design and Analysis using R. Willey
+3. Logan, M. Biostatistical Design and Analysis using R. Willey
