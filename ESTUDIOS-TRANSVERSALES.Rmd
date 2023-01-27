@@ -1,8 +1,8 @@
 ---
-title: "ESTUDIOS TRANSVERSALES EN R"
+title: "Estudios Transversales en R"
 author: "Msc Juan José Vindell"
-date: "27/2/2021"
-output: html_document
+date: "27/1/2023"
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -11,19 +11,18 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## INTRODUCCIÓN
 
- <div style="text-align: justify">
-### Los estudios epidemiológicos clásicamente se dividen en Experimentales y No experimentales. En los estudios experimentales hay asignación de una exposición determinada osea que el investigador "impone" el factor al sujeto de investigación. Cuando el experimento no es posible se diseñan estudios no experimentales que simulan de alguna forma el experimento que no se ha podido realizar.
+Los estudios epidemiológicos clásicamente se dividen en Experimentales y No experimentales. En los estudios experimentales hay asignación de una exposición determinada osea que el investigador "impone" el factor al sujeto de investigación. Cuando el experimento no es posible se diseñan estudios no experimentales que simulan de alguna forma el experimento que no se ha podido realizar.
 
-
-![](ESTUDIOS.png)
+![Esquema de los estudios de investigación epidemiológica](ESTUDIOS.png)
 
 ## ESTUDIOS TRANSVERSALES
 
-<div style="text-align: justify">
-Se consideran transversales los estudios en los que los datos de cada sujeto representan esencialmente un momento del tiempo. Estos datos pueden corresponder a la presencia, ausencia o diferentes grados de una característica o enfermedad (como ocurre, por ejemplo, en los estudios de prevalencia de un problema de salud en una comunidad determinada), o bien examinar la relación entre diferentes variables en una población definida en un momento de tiempo determinado. 
+Se consideran transversales los estudios en los que los datos de cada sujeto representan esencialmente un momento del tiempo. Estos datos pueden corresponder a la presencia, ausencia o diferentes grados de una característica o enfermedad (como ocurre, por ejemplo, en los estudios de prevalencia de un problema de salud en una comunidad determinada),
+o bien examinar la relación entre diferentes variables en una población definida en un momento de tiempo determinado. 
 
-Dado que las variables se han medido de forma simultánea, no puede establecerse la existencia de una secuencia temporal entre ellas y, por tanto, estos diseños no permiten abordar el estudio de una presunta relación causa-efecto. Así pues, los estudios transversales son por definición descriptivos.
-
+Dado que las variables se han medido de forma simultánea, no
+puede establecerse la existencia de una secuencia temporal entre ellas y, por tanto, estos diseños no permiten abordar el estudio de una presunta relación causa-efecto. Así pues, los estudios transversales
+son por definición descriptivos.
 
 ## APLICACIÓN EN R
 
@@ -137,7 +136,7 @@ Variable cuantitativa
 
 * Medidas descriptivas como *mean()* y *sd()*
 
-## EJEMPLO
+##EJEMPLO
 
 ```{r}
 summary(data1)
@@ -189,19 +188,6 @@ Si necesita información más detallada, incluido el número / proporción que f
 summary(tab)
 ```
 
-## Resumiendo variables no normales
-
-Parece que la mayoría de las variables continuas están muy sesgadas, excepto el EDAD.
-
-Por lo tanto, las demás variables son no normales por lo que ocuparemos el comando **nonormal** de **print()**
-
-```{r}
-clinico <- c("PESO","TALLA","calcimc","GLUCOSA","COLESTEROL","TRIGLICÉRIDOS")
-print(tab, nonnormal = clinico)
-```
-
-## Resumen de dos grupos
-
 Ahora bien, si lo que deseamos es comparar todo este conjunto de datos con una variable dependiente, utilizamos el comando **strata**
 
 ```{r}
@@ -210,34 +196,14 @@ tab1
 ```
 
 ```{r}
-print(tab1,nonnormal=clinico,showAllLevels=T)
+print(tab1,showAllLevels=T,quote = TRUE,formatOptions = list(big.mark = ","))
 ```
-
-## Exportar la tabla a Excel
-
-La forma rápida y sucia que hacemos es copiar y pegar. Ahora bien utilicemos el argumento **quote = TRUE** para mostrar las comillas y **noSpaces = TRUE** para eliminar los espacios utilizados para alinear el texto en la consola R (este último es opcional). 
-
-```{r}
-print(tab1, nonnormal = clinico, exact = "stage", quote = TRUE, noSpaces = TRUE)
-```
-
-No usamos el argumento de comillas en este caso, el argumento **noSpaces** es nuevamente opcional
-
-```{r}
-tab2Mat <- print(tab1, showAllLevels=T, nonnormal = clinico, exact = "stage", quote = FALSE, noSpaces = TRUE, 
-printToggle = FALSE)
-## Save to a CSV file
-write.csv(tab2Mat, file = "JUANVINDELL.csv")
-```
-
-
-## Solo variables categóricas o continuas
 
 Es posible que desee ver solo las variables categóricas o continuas. Puede hacer esto accediendo a la parte **CatTable** y la parte **ContTable** del objeto TableOne de la siguiente manera. Los métodos summary () se definen para ambos, así como el método print () con varios argumento
 
 ```{r}
 #Solamente la parte categórica
-print(tab1$CatTable,showAllLevels=T)
+print(tab1$CatTable)
 ```
 
 ```{r}
@@ -245,11 +211,6 @@ print(tab1$CatTable,showAllLevels=T)
 print(tab1$ContTable)
 ```
 
-## **4. BIBLIOGRAFÍA**
 
-<div style="text-align: justify">
-#### 1. Argimon Pallás, J. M. Metodología de Investigación Clínica y Epidemiológica. Elsevier 5°Edición.
 
-#### 2. https://CRAN.R-project.org/package=tableone
 
-#### 3. Logan, M. Biostatistical Design and Analysis using R. Willey
